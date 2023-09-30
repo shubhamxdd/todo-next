@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LoginLogout from "./LoginLogout";
 
 const Header = () => {
   return (
@@ -17,7 +18,7 @@ const Header = () => {
                 <Link href="/about">About</Link>
               </li>
               <li>
-                <Link href="/login">Login</Link>
+                <LoginLogout />
               </li>
             </ul>
           </div>

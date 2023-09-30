@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
+import { MyContextProvider } from "@/context/MyContext";
 
 export const metadata: Metadata = {
   title: "TODO App",
@@ -15,8 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
+        <MyContextProvider>
+          <>
+            <Header />
+            <main>{children}</main>
+          </>
+        </MyContextProvider>
       </body>
     </html>
   );
