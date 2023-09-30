@@ -18,5 +18,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error }, { status: 500 });
   }
 
-  return NextResponse.json({ message: "Success" }, { status: 200 });
+  return NextResponse.json(
+    { message: "task added successfully to DB" },
+    { status: 200 }
+  );
 }
