@@ -3,6 +3,7 @@ import { ConnectToDB } from "@/utils/connect";
 import { NextRequest, NextResponse } from "next/server";
 import { serialize } from "cookie";
 import { generateToken } from "@/utils/generateToken";
+import bcrypt from "bcrypt";
 
 export async function POST(req: NextRequest) {
   // req.json() or req.body
@@ -25,7 +26,9 @@ export async function POST(req: NextRequest) {
       { status: 400 }
     );
 
-  const newUser = await User.create({ name, email, password });
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const newUser = await User.create({ name, email, password: hashedPassword });
 
   const token = generateToken(newUser._id);
 
