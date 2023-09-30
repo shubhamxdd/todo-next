@@ -6,12 +6,13 @@ export async function POST(req: NextRequest) {
   try {
     await ConnectToDB();
 
-    const { title, description } = await req.json();
-    console.log(title, description);
+    const { title, description, user } = await req.json();
+    console.log(title, description, user);
 
     await Task.create({
       title,
       description,
+      user
     });
   } catch (error) {
     console.log(error);
