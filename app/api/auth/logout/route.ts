@@ -10,7 +10,6 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.json(
     { message: `Logged out sucessfully` },
-    // { status: 201 },
     { headers: { "Set-Cookie": cookie } }
   );
 }
