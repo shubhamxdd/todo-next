@@ -3,15 +3,17 @@
 interface Props {
   text: string;
   onClick?: () => void;
+  type?: "button" | "submit";
+  className?: string;
 }
 
-const Button = ({ text }: Props) => {
+const Button = ({ text, className, type = "button" }: Props) => {
   const onClick = () => {
     console.log("clicked");
   };
   // TODO: Add classes
   return (
-    <button className="" onClick={onClick}>
+    <button className={className} type={type} onClick={onClick}>
       {text}
     </button>
   );
