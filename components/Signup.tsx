@@ -16,55 +16,52 @@ interface Props {
 
 const Signup = ({ isSignup = false }: Props) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const router = useRouter();
 
   const { user, setUser } = useContext(MyContext);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const signupHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("signup");
-  };
-
-  const loginHandler = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("login");
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
+          name,
           password,
         }),
       });
       const data = await res.json();
       // console.log(data);
-
-      if (data.success) {
+      if (!data.user) return toast.error(data.message);
+      if (data.user._id) {
         setUser(data.user);
-        return console.log("from success");
+        router.push("/");
+        return toast.success(data.message);
       }
-      if (!data.success) {
-        return toast.error(data.message);
-      }
-      console.log(data.user);
-      if (data.user._id) return router.push("/");
-      return toast.success(data.message);
-    } catch (error) {}
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <>
       <div className="flex justify-center items-center">
         <section>
-          <form onSubmit={isSignup ? onSubmit : loginHandler}>
+          <form onSubmit={signupHandler}>
             <label htmlFor="username">Username:</label>
             <br />
             <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               type="username"
               name="username"
               id="username"
