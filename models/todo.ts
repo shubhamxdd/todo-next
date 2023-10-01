@@ -18,10 +18,9 @@ const schema = new mongoose.Schema({
     default: false,
   },
   user: {
-    type: String,
-    // type: mongoose.Schema.Types.ObjectId,
-    // ref: "User",
-    // required: [true, "User is required."],
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: [true, "User is required."],
   },
   createdAt: {
     type: Date,
