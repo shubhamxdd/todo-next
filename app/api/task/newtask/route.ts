@@ -15,6 +15,16 @@ export async function POST(req: NextRequest) {
         { message: "Please provide title and description" },
         { status: 400 }
       );
+    if (!title)
+      return NextResponse.json(
+        { message: "Please provide title" },
+        { status: 400 }
+      );
+    if (!description)
+      return NextResponse.json(
+        { message: "Please provide description" },
+        { status: 400 }
+      );
 
     const user = await isAuthenticated(req);
 
