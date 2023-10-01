@@ -2,6 +2,8 @@
 
 import React, { createContext, useState } from "react";
 
+import {Toaster} from "react-hot-toast"
+
 // remove any type
 interface UserContext {
   user: any;
@@ -24,6 +26,7 @@ export const MyContextProvider = ({
   return (
     <MyContext.Provider value={{ user, setUser }}>
       {children}
+      <Toaster />
     </MyContext.Provider>
   );
 };
