@@ -1,10 +1,12 @@
 import LoginForm from "@/components/Form";
-import React from "react";
+import Signup from "@/components/Signup";
 
 const SignUp = () => {
   return (
     <>
-      <LoginForm isSignup={true}/>
+      {/* TOOD */}
+      {/* <LoginForm isSignup={true}/> */}
+      <Signup />
     </>
   );
 };
