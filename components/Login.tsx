@@ -36,6 +36,7 @@ const Login = () => {
       if (data.user._id) {
         setUser(data.user);
         router.push("/");
+        router.refresh();
         return toast.success(data.message);
       }
 
