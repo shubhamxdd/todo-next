@@ -10,6 +10,8 @@ export async function POST(req: NextRequest) {
   let response = NextResponse.next();
   const { email, password } = await req.json();
 
+  console.log(`${email} and pass: ${password} from login route`);
+
   if (!email || !password)
     return NextResponse.json(
       { message: "Please fill all fields" },
@@ -41,8 +43,7 @@ export async function POST(req: NextRequest) {
   });
 
   return NextResponse.json(
-    { message: `Welcome User: ${user.name}` },
-    // { status: 201 },
+    { message: `Welcome User: ${user.name}`, user },
     { headers: { "Set-Cookie": cookie } }
   );
 }

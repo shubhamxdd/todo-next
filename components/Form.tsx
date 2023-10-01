@@ -2,27 +2,65 @@
 
 import Button from "@/components/Button";
 import Link from "next/link";
-import { FormEvent } from "react";
-import Input from "./Input";
+import { FormEvent, useContext, useState } from "react";
+// import Input from "./Input";
+import { useRouter } from "next/navigation";
+import { MyContext } from "@/context/MyContext";
 
 interface Props {
   isSignup?: boolean;
 }
 
+// TODO: SSR
+
 const LoginForm = ({ isSignup = false }: Props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
+
+  const { user, setUser } = useContext(MyContext);
+
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("signup");
   };
+
+  const loginHandler = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("login");
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      const data = await res.json();
+      // console.log(data);
+
+      if (data.success) {
+        setUser(data.user);
+      }
+      // console.log(data.user);
+      if (data.user._id) return router.push("/");
+    } catch (error) {}
+  };
+
   return (
     <>
       <div className="flex justify-center items-center">
         <section>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={isSignup ? onSubmit : loginHandler}>
             {isSignup && (
               <>
                 <label htmlFor="username">Username:</label>
                 <br />
-                <Input
+                <input
                   type="username"
                   name="username"
                   id="username"
@@ -35,7 +73,9 @@ const LoginForm = ({ isSignup = false }: Props) => {
 
             <label htmlFor="email">Email:</label>
             <br />
-            <Input
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
               type="email"
               name="email"
               id="email"
@@ -45,7 +85,9 @@ const LoginForm = ({ isSignup = false }: Props) => {
             <br />
             <label htmlFor="password">Password:</label>
             <br />
-            <Input
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
               type="password"
               name="password"
               id="password"

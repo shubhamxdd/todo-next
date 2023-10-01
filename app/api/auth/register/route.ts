@@ -41,8 +41,10 @@ export async function POST(req: NextRequest) {
   });
 
   return NextResponse.json(
-    { message: `User created with name: "${name}" and email: "${email}"` },
-    // { status: 201 },
+    {
+      message: `User created with name: "${name}" and email: "${email}"`,
+      user: newUser,
+    },
     { headers: { "Set-Cookie": cookie } }
   );
 }

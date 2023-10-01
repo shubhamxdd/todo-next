@@ -9,7 +9,6 @@ interface Props {
 
 const Button = ({ text, className, type = "button" }: Props) => {
   const onClick = () => {
-    console.log("clicked");
   };
   // TODO: Add classes
   return (
