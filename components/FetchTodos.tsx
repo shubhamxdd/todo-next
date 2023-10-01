@@ -38,7 +38,7 @@ const FetchTodos = async () => {
 
   return (
     <>
-      <div className="bg-zinc-300 mx-4 px-6 py-4 rounded-md mt-5">
+      <div className="bg-zinc-500 mx-4 px-6 py-4 rounded-md mt-5 text-white">
         {tasks?.length === 0 && (
           <p className="text-center text-xl">No tasks to show</p>
         )}

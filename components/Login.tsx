@@ -74,6 +74,12 @@ const Login = () => {
               className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500"
             />
             <br />
+            <p className="mt-2">
+              New user?
+              <Link href="/signup" className="text-blue-500">
+                &nbsp;Signup
+              </Link>
+            </p>
 
             <Button
               text="Login"
@@ -81,7 +87,6 @@ const Login = () => {
               className="mt-4 px-4 bg-blue-400 hover:bg-blue-600 py-2 rounded-lg text-white"
             />
           </form>
-          <Link href="/signup">signup</Link>
         </section>
       </div>
     </>

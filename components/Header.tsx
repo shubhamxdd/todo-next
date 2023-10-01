@@ -1,7 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import LoginLogout from "./LoginLogout";
 
+// darkMOde
+
 const Header = () => {
+  const darkMode = () => {
+    document.getElementsByTagName("html")[0].classList.toggle("dark");
+  };
   return (
     <>
       <div className="px-5 py-2">
@@ -23,6 +30,7 @@ const Header = () => {
               <li>
                 <LoginLogout />
               </li>
+              <li onClick={darkMode}>Dark mode</li>
             </ul>
           </div>
         </div>

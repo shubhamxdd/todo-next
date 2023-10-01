@@ -92,20 +92,18 @@ const Signup = ({ isSignup = false }: Props) => {
               id="password"
               className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <br />
+            <p className="mt-2">
+              Already have an account?
+              <Link href="/login" className="text-blue-500 hover:text-blue-700">
+                &nbsp;{"Login"}
+              </Link>
+            </p>
             <Button
               text="Signup"
               type="submit"
               className="mt-4 px-4 bg-blue-400 hover:bg-blue-600 py-2 rounded-lg text-white"
             />
           </form>
-          <Link
-            href="/login"
-            className="text-blue-500 hover:text-blue-700
-            "
-          >
-            &nbsp;{"Login"}
-          </Link>
         </section>
       </div>
     </>

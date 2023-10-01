@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="dark:bg-gray-600 dark:text-slate-100 ">
         <MyContextProvider>
           <>
             <Header />
