@@ -20,20 +20,41 @@ const TodoButton = ({ id, completed }: Props) => {
 
       if (res.status === 404) return toast.error(data.message);
 
+      // console.log(`Deleting task with id: ${id}`);
       toast.success(data.message);
-
       router.refresh();
     } catch (error: any) {
       console.log(error.message);
-      return toast.error(error)
+      return toast.error(error);
     }
+  };
+  const updateTodo = async (id: string) => {
+    try {
+      const res = await fetch(`/api/task/updatetask/${id}`, {
+        method: "PUT",
+      });
 
-    // console.log(`Deleting task with id: ${id}`);
+      const data = await res.json();
+
+      if (res.status === 404) return toast.error(data.message);
+
+      // console.log(`Deleting task with id: ${id}`);
+      toast.success(data.message);
+      router.refresh();
+    } catch (error: any) {
+      console.log(error.message);
+      return toast.error(error);
+    }
   };
   return (
     <>
       <div>
-        <input type="checkbox" className="mx-10" checked={completed} />
+        <input
+          type="checkbox"
+          className="mx-10"
+          checked={completed}
+          onChange={() => updateTodo(id)}
+        />
         <button
           onClick={() => deleteTodo(id)}
           className="bg-cyan-600 px-3 py-1 rounded-lg text-white"
