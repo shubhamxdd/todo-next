@@ -67,7 +67,7 @@ const Signup = ({ isSignup = false }: Props) => {
               name="username"
               id="username"
               placeholder="shubhamxd"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
             />
             <br />
             <label htmlFor="email">Email:</label>
@@ -79,7 +79,7 @@ const Signup = ({ isSignup = false }: Props) => {
               name="email"
               id="email"
               placeholder="user@mail.com"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
             />
             <br />
             <label htmlFor="password">Password:</label>
@@ -90,18 +90,18 @@ const Signup = ({ isSignup = false }: Props) => {
               type="password"
               name="password"
               id="password"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500"
+              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 text-black"
             />
             <p className="mt-2">
               Already have an account?
-              <Link href="/login" className="text-blue-500 hover:text-blue-700">
+              <Link href="/login" className="text-blue-500 dark:text-blue-400">
                 &nbsp;{"Login"}
               </Link>
             </p>
             <Button
               text="Signup"
               type="submit"
-              className="mt-4 px-4 bg-blue-400 hover:bg-blue-600 py-2 rounded-lg text-white"
+              className="mt-4 px-4 bg-blue-400 dark:bg-blue-600 dark:hover:bg-blue-500 hover:bg-blue-600 py-2 rounded-lg text-white"
             />
           </form>
         </section>
