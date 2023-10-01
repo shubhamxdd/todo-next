@@ -56,7 +56,7 @@ const TodoForm = () => {
               name="title"
               id="title"
               placeholder="title"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
             />
             <br />
             <label htmlFor="description">Description:</label>
@@ -69,7 +69,7 @@ const TodoForm = () => {
               name="description"
               id="description"
               placeholder="..."
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
             />
             <br />
             <Button
