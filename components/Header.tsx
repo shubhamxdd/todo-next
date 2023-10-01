@@ -40,29 +40,31 @@ const Header = () => {
 
         {/*  mobile nav  */}
 
-        <div className="hidden max-md:block" onClick={() => setShow(!show)}>
+        <div className="hidden max-md:block">
           <div className="flex justify-between">
             <h2 className="text-xl font-semibold">
               <Link href="/">Todo</Link>
             </h2>
-            {show ? (
-              <Image
-                src="/nav_cross.svg"
-                alt="hamburger icon"
-                height={25}
-                width={25}
-              />
-            ) : (
-              <Image
-                src="/hamburger.svg"
-                alt="hamburger icon"
-                height={25}
-                width={25}
-              />
-            )}
+            <div onClick={() => setShow(!show)}>
+              {show ? (
+                <Image
+                  src="/nav_cross.svg"
+                  alt="hamburger icon"
+                  height={25}
+                  width={25}
+                />
+              ) : (
+                <Image
+                  src="/hamburger.svg"
+                  alt="hamburger icon"
+                  height={25}
+                  width={25}
+                />
+              )}
+            </div>
             {show && (
               <div className="bg-slate-200 px-3 pr-8 py-2 rounded-xl absolute right-0 mt-8 mr-8 dark:text-zinc-600   ">
-                <ul className="">
+                <ul className="gap-5 text-lg pr-2 ">
                   <li>
                     <Link href="/">Home</Link>
                   </li>
@@ -72,7 +74,7 @@ const Header = () => {
                   <li>
                     <Link href="/profile">Profile</Link>
                   </li>
-                  <li>
+                  <li className="text-red-500">
                     <LoginLogout />
                   </li>
                   <li onClick={darkMode}>Dark mode</li>
