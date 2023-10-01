@@ -15,11 +15,12 @@ const LoginLogout = () => {
       const res = await fetch("/api/auth/logout");
       const data = await res.json();
       console.log("logging out");
-      router.push("/login");
       setUser({});
+      toast.success(data.message);
+      router.push("/login");
+      router.refresh();
 
       if (!data.user._id) return toast.error(data.message);
-      toast.success(data.message);
     } catch (error) {
       // return toast.error(data.message);
     }
