@@ -1,11 +1,45 @@
 "use client";
 
 import Button from "@/components/Button";
-import { FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 
 const TodoForm = () => {
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const router = useRouter();
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    try {
+      const res = await fetch("/api/task/newtask", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          title,
+          description,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) return toast.error(data.message);
+
+      router.refresh();
+
+      toast.success(data.message);
+    } catch (error: any) {
+      return toast.error(error.message);
+    } finally {
+      setTitle("");
+      setDescription("");
+    }
   };
   return (
     <>
@@ -15,6 +49,8 @@ const TodoForm = () => {
             <label htmlFor="title">Title:</label>
             <br />
             <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               type="text"
               name="title"
               id="title"
@@ -25,6 +61,8 @@ const TodoForm = () => {
             <label htmlFor="description">Description:</label>
             <br />
             <input
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               type="text"
               name="description"
               id="description"
