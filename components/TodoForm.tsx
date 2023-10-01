@@ -31,14 +31,14 @@ const TodoForm = () => {
 
       if (!res.ok) return toast.error(data.message);
 
+      setTitle("");
+      setDescription("");
+
       router.refresh();
 
       toast.success(data.message);
     } catch (error: any) {
       return toast.error(error.message);
-    } finally {
-      setTitle("");
-      setDescription("");
     }
   };
   return (
@@ -50,6 +50,7 @@ const TodoForm = () => {
             <br />
             <input
               value={title}
+              minLength={3}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               name="title"
@@ -63,6 +64,7 @@ const TodoForm = () => {
             <input
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              minLength={3}
               type="text"
               name="description"
               id="description"
