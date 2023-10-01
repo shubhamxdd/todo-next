@@ -43,7 +43,8 @@ const Signup = ({ isSignup = false }: Props) => {
       if (data.user._id) {
         setUser(data.user);
         router.push("/");
-        return toast.success(data.message);
+        router.refresh();
+        toast.success(data.message);
       }
 
       console.log(data);
