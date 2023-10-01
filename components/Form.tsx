@@ -3,6 +3,7 @@
 import Button from "@/components/Button";
 import Link from "next/link";
 import { FormEvent } from "react";
+import Input from "./Input";
 
 interface Props {
   isSignup?: boolean;
@@ -21,7 +22,7 @@ const LoginForm = ({ isSignup = false }: Props) => {
               <>
                 <label htmlFor="username">Username:</label>
                 <br />
-                <input
+                <Input
                   type="username"
                   name="username"
                   id="username"
@@ -34,7 +35,7 @@ const LoginForm = ({ isSignup = false }: Props) => {
 
             <label htmlFor="email">Email:</label>
             <br />
-            <input
+            <Input
               type="email"
               name="email"
               id="email"
@@ -44,7 +45,7 @@ const LoginForm = ({ isSignup = false }: Props) => {
             <br />
             <label htmlFor="password">Password:</label>
             <br />
-            <input
+            <Input
               type="password"
               name="password"
               id="password"
