@@ -16,9 +16,9 @@ const LoginLogout = () => {
       const data = await res.json();
       console.log("logging out");
       setUser({});
-      toast.success(data.message);
       router.push("/login");
       router.refresh();
+      toast.success(data.message);
 
       if (!data.user._id) return toast.error(data.message);
     } catch (error) {
