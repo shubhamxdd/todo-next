@@ -14,9 +14,9 @@ export async function POST(req: NextRequest) {
       { status: 400 }
     );
 
-  console.log(
-    `email is: ${email} and new password is: ${newPassword} from forgetpass route`
-  );
+  // console.log(
+  //   `email is: ${email} and new password is: ${newPassword} from forgetpass route`
+  // );
 
   await ConnectToDB();
 
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json(
     {
-      message: `Password changed for user: ${user.name} newPass: ${newPassword} and hashedPassword: ${newHashedPassword}`,
+      message: `Password changed for user: ${user.name}`,
       user,
     },
     { headers: { "Set-Cookie": cookie } }
