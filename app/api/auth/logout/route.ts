@@ -5,7 +5,7 @@ export async function GET(req: NextRequest) {
   const cookie = serialize("token", "", {
     path: "/",
     httpOnly: true,
-    maxAge: 5 * 24 * 60 * 60 * 1000,
+    maxAge: 0,
   });
 
   return NextResponse.json(
