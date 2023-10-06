@@ -1,41 +1,37 @@
 "use client";
 
 import Button from "@/components/Button";
-import { FormEvent, useContext, useState } from "react";
-import { useRouter } from "next/navigation";
-import { MyContext } from "@/context/MyContext";
-import toast from "react-hot-toast";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 
-const Login = () => {
+const Forgetpass = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const router = useRouter();
 
-  const { user, setUser } = useContext(MyContext);
-
-  const loginHandler = async (e: FormEvent<HTMLFormElement>) => {
+  const resetPasswordHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("login");
 
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("/api/auth/forgetpass", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
-          password,
+          newPassword,
         }),
       });
 
       const data = await res.json();
       if (!data.user) return toast.error(data.message);
       if (data.user._id) {
-        setUser(data.user);
-        router.push("/");
+        router.push("/login");
         router.refresh();
         return toast.success(data.message);
       }
@@ -50,7 +46,7 @@ const Login = () => {
     <>
       <div className="flex justify-center items-center">
         <section>
-          <form onSubmit={loginHandler}>
+          <form onSubmit={resetPasswordHandler}>
             <label htmlFor="email">Email:</label>
             <br />
             <input
@@ -66,8 +62,8 @@ const Login = () => {
             <label htmlFor="password">Password:</label>
             <br />
             <input
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              onChange={(e) => setNewPassword(e.target.value)}
+              value={newPassword}
               type="password"
               name="password"
               id="password"
@@ -75,22 +71,13 @@ const Login = () => {
             />
             <br />
             <p className="mt-2">
-              New user?
-              <Link href="/signup" className="text-blue-500 dark:text-blue-400">
-                &nbsp;Signup
-              </Link>
-            </p>
-            <p className="mt-2">
-              <Link
-                href="/forgetpass"
-                className="text-blue-500 dark:text-blue-400"
-              >
-                Forget Password?
+              <Link href=".." className="text-blue-500 dark:text-blue-400">
+                Go Back
               </Link>
             </p>
 
             <Button
-              text="Login"
+              text="Reset password"
               type="submit"
               className="mt-4 px-4 bg-blue-400 dark:bg-blue-600 dark:hover:bg-blue-500 hover:bg-blue-600 py-2 rounded-lg text-white"
             />
@@ -101,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Forgetpass;
