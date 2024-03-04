@@ -8,8 +8,8 @@ import toast from "react-hot-toast";
 import Link from "next/link";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test@gmail.com");
+  const [password, setPassword] = useState("test");
 
   const router = useRouter();
 
@@ -60,7 +60,7 @@ const Login = () => {
               name="email"
               id="email"
               placeholder="user@mail.com"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
+              className="border rounded-lg py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
             />
             <br />
             <label htmlFor="password">Password:</label>
@@ -71,7 +71,7 @@ const Login = () => {
               type="password"
               name="password"
               id="password"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              className="border rounded-lg py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 text-black"
             />
             <br />
             <p className="mt-2">

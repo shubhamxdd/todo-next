@@ -38,19 +38,23 @@ const FetchTodos = async () => {
 
   return (
     <>
-      <div className="bg-zinc-500 mx-4 px-6 py-4 rounded-md mt-5 text-white">
+      <div className="bg-zinc-200 mx-4 px-6 py-4 rounded-md mt-5 text-black ">
         {tasks?.length === 0 && (
           <p className="text-center text-xl">No tasks to show</p>
         )}
         {tasks?.map((task: task) => {
           return (
-            <TodoItem
+            <div
               key={task._id}
-              title={task.title}
-              description={task.description}
-              id={task._id}
-              completed={task.isCompleted}
-            />
+              className={`${task.isCompleted ? "text-zinc-400" : ""}`}
+            >
+              <TodoItem
+                id={task._id}
+                title={task.title}
+                description={task.description}
+                completed={task.isCompleted}
+              />
+            </div>
           );
         })}
       </div>

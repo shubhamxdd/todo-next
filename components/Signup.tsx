@@ -67,7 +67,7 @@ const Signup = ({ isSignup = false }: Props) => {
               name="username"
               id="username"
               placeholder="shubhamxd"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
+              className="border rounded-lg py-2 px-4 outline-none mb-4 text-black"
             />
             <br />
             <label htmlFor="email">Email:</label>
@@ -79,7 +79,7 @@ const Signup = ({ isSignup = false }: Props) => {
               name="email"
               id="email"
               placeholder="user@mail.com"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
+              className="border rounded-lg py-2 px-4 outline-none mb-4 text-black"
             />
             <br />
             <label htmlFor="password">Password:</label>
@@ -90,7 +90,7 @@ const Signup = ({ isSignup = false }: Props) => {
               type="password"
               name="password"
               id="password"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              className="border rounded-lg py-2 px-4 outline-none text-black"
             />
             <p className="mt-2">
               Already have an account?

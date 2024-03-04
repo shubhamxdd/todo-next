@@ -71,7 +71,7 @@ const LoginForm = ({ isSignup = false }: Props) => {
                   name="username"
                   id="username"
                   placeholder="shubhamxd"
-                  className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                  className="border rounded-lg py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
                 />
               </>
             )}
@@ -86,7 +86,7 @@ const LoginForm = ({ isSignup = false }: Props) => {
               name="email"
               id="email"
               placeholder="user@mail.com"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+              className="border rounded-lg py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
             />
             <br />
             <label htmlFor="password">Password:</label>
@@ -97,7 +97,7 @@ const LoginForm = ({ isSignup = false }: Props) => {
               type="password"
               name="password"
               id="password"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500"
+              className="border rounded-lg py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500"
             />
             <br />
             {

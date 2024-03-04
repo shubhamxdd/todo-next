@@ -56,7 +56,7 @@ const Forgetpass = () => {
               name="email"
               id="email"
               placeholder="user@mail.com"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
+              className="border rounded-lg py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-black"
             />
             <br />
             <label htmlFor="password">Password:</label>
@@ -67,7 +67,7 @@ const Forgetpass = () => {
               type="password"
               name="password"
               id="password"
-              className="border rounded py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              className="border rounded-lg py-2 px-4 outline-none focus:ring-2 focus:ring-blue-500 text-black"
             />
             <br />
             <p className="mt-2">
