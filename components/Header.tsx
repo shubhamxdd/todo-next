@@ -17,7 +17,7 @@ const Header = () => {
       <div className="px-5 py-2">
         <div className="flex justify-between max-md:hidden">
           <h2 className="text-xl font-semibold">
-            <Link href="/">Todo</Link>
+            <Link href="/">TodoApp</Link>
           </h2>
           <div className="">
             <ul className="flex gap-5">
